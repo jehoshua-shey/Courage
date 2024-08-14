@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #dddddd;
+            height: 100vh;
+            display: flex;
+        }
+
+        main {
+            width: 660px;
+            box-shadow: -1px -1px 10px 2.5px #908f8f73;
+            margin: auto;
+            padding: 3px;
+            font-family: math;
+        }
+
+        .form {
+            background-color: #fff;
+        }
+
+        .form-con {
+            width: 590px;
+            margin: 0 auto;
+        }
+
+        .top-section {
+            padding: 2rem 0;
+        }
+
+        .logo {
+            width: fit-content;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .logo-left {
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid #ff9968;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #ff9968;
+        }
+
+        .logo-left-inner {
+            clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-right {
+            color: #ff9968;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: #ff996829;
+        }
+
+        .header-section h1 {
+            margin: 0 auto;
+            width: 300px;
+            line-height: 1.6;
+            font-weight: 400;
+            font-size: 21px;
+        }
+
+        .header-section>p {
+            margin: 0 auto;
+            line-height: 1.1;
+            width: 300px;
+            font-weight: 200;
+            font-size: 15px;
+        }
+
+        .form-section {
+            padding: 1rem 1rem 2rem;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-inline {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .form-inline .form-field {
+            width: calc((100% - 2rem)/2);
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-field label {
+            font-size: 15px;
+            position: relative;
+        }
+
+        .form-field input {
+            padding: 0.5rem 1rem;
+            outline: none;
+            border: 1.5px solid #ccc;
+            border-radius: 0.4rem;
+            font-family: math;
+            font-size: 17px;
+        }
+
+        .form-field input[type="checkbox"] {
+            visibility: hidden;
+            margin-right: 0.3rem;
+        }
+
+        .form-field input[type="checkbox"]~.check-span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+            outline: 1px solid #ccc
+        }
+
+        .form-field input[type="checkbox"]~.check-span::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            opacity: 0;
+            border-radius: 2px;
+            background-color: #ff9968;
+        }
+
+        .form-field input[type="checkbox"]:checked~.check-span {
+            outline-color: #ff9968;
+        }
+
+        .form-field input[type="checkbox"]:checked~.check-span::after {
+            opacity: 1;
+        }
+
+        .submit {
+            border: none;
+            padding: 1rem 0;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: #ff9968;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+
+    <main>
+        <div class="form">
+            <div class="form-con">
+                <section class="top-section">
+                    <div class="logo">
+                        <div class="logo-left">
+                            <div class="logo-left-inner"></div>
+                        </div>
+                        <div class="logo-right">YourCompany</div>
+                    </div>
+                </section>
+                <section class="header-section">
+                    <h1>Sign Up for Our Newsletter</h1>
+                    <p>
+                        Fill out your information below to be signed up for our informative newsletter
+                    </p>
+                </section>
+                <section class="form-section">
+                    <form onsubmit="createForm()" name="signup" class="signup-form">
+                        <div class="form-inline">
+                            <div class="form-field">
+                                <label for="first-name">
+                                    First Name
+                                </label>
+                                <input type="text" required name="first-name" placeholder="First Name">
+                            </div>
+                            <div class="form-field">
+                                <label for="last-name">
+                                    Last Name
+                                </label>
+                                <input type="text" name="last-name" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="email">
+                                Email Address
+                            </label>
+                            <input type="text" name="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-field">
+                            <label for="company">
+                                Company
+                            </label>
+                            <input type="text" name="company" placeholder="Company">
+                        </div>
+                        <div class="form-field">
+                            <label>Add me to your mailing list</label>
+                            <div class="form-check">
+                                <label for="company">
+                                    <input type="checkbox" name="company" id="company">
+                                    <span class="check-span"></span>
+                                    I agree to receive e-mails from your company and your terms and conditions.
+                                </label>
+                            </div>
+                        </div>
+                        <input type="submit" value="Sign Me Up" class="submit">
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+</body>
+
+<script>
+    const createForm = () => {
+        event.preventDefault()
+        const lastname = document.forms["signup"]["last-name"].value
+        const company = document.forms["signup"]["company"].value
+
+        if (lastname.length == 0) {
+            window.alert('last name field cannot be empty')
+        } 
+        else if (lastname.length < 4) {
+            window.alert('last name cannot be too short')
+        } 
+        else {
+            
+        }
+
+    }
+</script>
+
+</html>
